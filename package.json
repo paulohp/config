@@ -11,8 +11,8 @@
     "node": ">=0.8.0"
   },
   "dependencies": {
-    "bower-json": "^0.6.0",
-    "graceful-fs": "^4.0.0",
+    "bower-json": "paulohp/json#7851586b9253ea9533b13b9da17190a709515116",
+    "graceful-fs": "^4.1.2",
     "mout": ">=0.9.0 <1.0.0",
     "optimist": "^0.6.1",
     "osenv": "^0.1.3",

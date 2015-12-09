@@ -122,10 +122,10 @@ describe('rc', function() {
         });
 
         it('is present and config field has invalid type', function(){
-            var config = rc('bower', tempDir.path + '/child6/');
-            expect(config.bower_json).to.be.an('object');
-            expect(bowerJson.validate(config.bower_json)).to.be.an('object');
-            expect(config.bower_json.config).not.to.be.an('array');
+            var config = function() {
+                rc('bower', tempDir.path + '/child6/');
+            };
+            expect(config).to.throwError('bower.json config field should be an Object');
         });
     });
 });
