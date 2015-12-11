@@ -39,6 +39,7 @@ describe('rc', function() {
             main: 'foo.js,bar.js',
             config: []
         },
+        'child7/bower.json': 'name: my-packeage, version: 0.0.1',
         'other_dir/.bowerrc': {
             key: 'othervalue'
         }
@@ -119,6 +120,15 @@ describe('rc', function() {
             expect(config.bower_json).to.be.an('object');
             expect(bowerJson.validate(config.bower_json)).to.be.an('object');
             expect(config.bower_json.config).to.be(undefined);
+        });
+
+        it('is present and are invalid', function(){
+            var config = function(){
+                rc('bower', tempDir.path + '/child7/');
+            };
+
+            expect(config).to.throwError('EMALFORMED');
+
         });
 
         it('is present and config field has invalid type', function(){
