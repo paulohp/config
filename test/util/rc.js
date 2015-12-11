@@ -109,7 +109,6 @@ describe('rc', function() {
 
         it('is present and theres valid config', function(){
             var config = rc('bower', tempDir.path + '/child4/');
-            console.log(config);
             expect(config.bower_json).to.be.an('object');
             expect(config.bower_json.config).to.be.an('object');
             expect(bowerJson.validate(config.bower_json)).to.be.an('object');

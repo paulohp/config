@@ -241,4 +241,19 @@ describe('untildify paths in .bowerrc', function() {
     });
 });
 
+describe('Bower config on bower.json', function() {
+
+    it('should skip if bower.json is not present', function() {
+        var config = require('../lib/Config').read('test/assets/no-bower-json');
+
+        assert.equal('bower_components', config.directory);
+    });
+
+    it('should read if bower.json is present', function() {
+        var config = require('../lib/Config').read('test/assets/bower-json');
+
+        assert.equal('my_components_home', config.directory);
+    });
+});
+
 require('./util/index');
