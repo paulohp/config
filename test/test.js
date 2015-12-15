@@ -254,6 +254,14 @@ describe('Bower config on bower.json', function() {
 
         assert.equal('my_components_home', config.directory);
     });
+
+    it('should override directory config with --config flag if bower.json is not present', function() {
+        var config = require('../lib/Config').read('test/assets/no-bower-json', {
+            directory: 'my_another_bower_components_home'
+        });
+
+        assert.equal('my_another_bower_components_home', config.directory);
+    });
 });
 
 require('./util/index');
